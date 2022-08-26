@@ -1,0 +1,19 @@
+<div class="ml-1 mt-1">
+  <ol>
+  <li>
+    <mat-form-field appearance="outline" class="w-72 md:w-96 lg:w-96 custom_text">
+      <mat-label class="text">Enter Value for Dialog</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+  </li>
+  <li>
+
+    <button  class="bg-blue-500 hover:bg-blue-700 text-white rounded-full custom_btn" (click)="openDialog()">Open Dialog </button>
+  </li>
+  <li *ngIf="animal" class="text">Value from Dialog: <i>{{animal}}</i>
+  </li>
+</ol>
+
+
+<!--<button maat-raised-button (click)="openDialog()">Open Dialog</button>-->
+</div>

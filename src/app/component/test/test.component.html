@@ -1,0 +1,16 @@
+<div>
+  <p>1. Get current local date and time :: {{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+<p>2. Get current UTC date and time :: {{todaysDataTime}}</p>
+</div>
+
+<div>
+Simple Clock:
+<div>{{ time | date: 'hh:mm:ss a' }}</div>
+
+<br/>
+
+<h2 style="color: gray">RxJS Clock:</h2>
+<div><h1> {{ rxTime | date: 'hh:mm:ss a' }} </h1></div>
+</div>
+<button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-full custom_btn">Button</button>
+<mat-icon class="big">error_outline</mat-icon>

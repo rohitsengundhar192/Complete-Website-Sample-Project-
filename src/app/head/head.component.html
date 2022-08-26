@@ -1,0 +1,153 @@
+<mat-toolbar class="titlebg h-9">
+  <div class="w-1/2 flex">
+    <div class="flex">
+      <button mat-icon-button>
+        <mat-icon _ngcontent-tuk-c191="" role="img" class="text-white mt-4 mat-icon notranslate back-icon material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">arrow_back_ios_new</mat-icon>
+      </button>
+      <img style="cursor: pointer;" class="w-11 h-11 logo-box-shadow rounded-lg  mt-3 " src="../../../assets/img/getbiz_logo.png" [matMenuTriggerFor]="menu">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>home</mat-icon>Home </button>
+    <button mat-menu-item><mat-icon>info</mat-icon>About this app & Contact</button>
+    <button mat-menu-item><mat-icon> contacts</mat-icon>Contact </button>
+    <button mat-menu-item><mat-icon> chat</mat-icon>Chat </button>
+    <button mat-menu-item><mat-icon>security</mat-icon>Scan QR for secure LOGIN </button>
+  </mat-menu>
+  <span class="mt-3 ml-4 text-white app-name">Demo Application Full Name</span>
+</div>
+</div>
+
+
+  <span class="spacer"></span>
+<div class="float-right flex space-x-2 ">
+  <div class="flex ml-[7%] space-x-2">
+<div class=" text-white text-justify hidden lg:flex lg:space-x-1 lg:ml-[30%]">
+
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon _ngcontent-tuk-c191="" role="img" matbadge="15" matbadgecolor="warn" matbadgesize="small" class="mt-5 mat-icon notranslate mat-badge mat-badge-warn material-icons mat-icon-no-color mat-badge-overlap mat-badge-above mat-badge-after mat-badge-small" aria-hidden="true" data-mat-icon-type="font">notifications<span id="mat-badge-content-1" aria-hidden="true" class="mat-badge-content mat-badge-active">15</span></mat-icon>
+ </button>
+ <button mat-icon-button class="hidden lg:flex">
+     <mat-icon class="mt-4">share</mat-icon>
+ </button>
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon class="mt-4">dark_mode</mat-icon>
+  </button>
+   <span class="hidden lg:flex mt-3 app-name">Download Web App</span>
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon class="mt-4">file_download</mat-icon>
+  </button>
+
+  <select class="h-6 w-24 mt-[17px] rounded-md border-black text-black text-sm">
+    <option>Select Language</option>
+    <option>English</option>
+    <option>Tamil</option>
+    <option>Hindi</option>
+  </select>
+</div>
+<!--insert select and make it responsive-->
+<img style="cursor: pointer;" src="../../assets/img/profile_icon.png" class="hidden lg:flex h-12 w-11  logo-box-shadow rounded-lg mt-3" [matMenuTriggerFor]="user">
+<mat-menu #user="matMenu">
+  <button mat-menu-item><mat-icon>assignment_ind</mat-icon>Profile </button>
+  <button mat-menu-item><mat-icon>phonelink_off</mat-icon>Sign out </button>
+</mat-menu>
+</div>
+</div>
+
+<!---part 1/2-->
+
+<div class="flex space-x-1 ml-[10%] ">
+
+<div class="sm:flex md:ml-72 lg:hidden " >
+  <select class="h-6 w-20 mt-2 rounded-md border-black text-black text-sm ">
+    <option>Select Language</option>
+    <option>English</option>
+    <option>Tamil</option>
+  </select>
+</div>
+
+<!--menu icon-->
+<div class="visible  lg:hidden">
+<button mat-icon-button [matMenuTriggerFor]="menu2" >
+  <mat-icon class="text-white  ">more_vert</mat-icon>
+</button>
+</div>
+</div>
+<mat-menu #menu2="matMenu" class="ml-32 md:disabled:hidden lg:flex">
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Profile</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>notifications_active</mat-icon>
+    <span>Notification</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>new_releases</mat-icon>
+    <span>Audit Trail</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>share</mat-icon>
+    <span>Share</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>file_download</mat-icon>
+    <span>Download</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>wb_sunny</mat-icon>
+    <span>Dark Mode</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+  <mat-icon>exit_to_app</mat-icon>
+  <span>Logout</span>
+  </button>
+</mat-menu>
+
+</mat-toolbar>
+<!--Second phase-->
+<mat-toolbar class="seco">
+  <div class="w-1/2 flex float-left">
+  <button mat-icon-button  aria-label="Example icon-button with menu icon" style="color:rgb(96, 112, 238);">
+    <mat-icon  (click)="sidenav.toggle();" class="w-full ml-3 bg-white rounded-lg shadow-md shadow-black custom-menu " >menu</mat-icon>
+  </button>
+  <mat-label style="color:white;" class="mt-1 ml-[75px] md:ml-[280px] lg:ml-[300px] xl:ml-[550px]">{{heads}}</mat-label>
+</div>
+
+<!-- <div class="w-1/2 ">
+  <a routerLink="#" (click)="openDialog()" class="hidden text-white lg:flex lg:text-xs lg:float-right lg:mr-20 "><u>Audit Trail</u></a>
+
+</div>-->
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav [mode]="(isHandset$ | async) ? 'over' : 'side'" #sidenav opened="true" [opened]="(isHandset$ | async) ? false : true" >
+    <mat-nav-list style="width:250px" class="active border border-white ">
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="table()"    class="titlebg border border-white" [routerLink]="['table']"    mat-list-item style="color:black">    <span class="text-white gap-">Table</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="step()"     class="titlebg border border-white" [routerLink]="['step']"     mat-list-item style="color:  black"> <span class="text-white">Stepper</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="tabs()"     class="titlebg border border-white" [routerLink]="['tabs']"     mat-list-item style="color:black">    <span class="text-white">Tabs</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="file()"     class="titlebg border border-white" [routerLink]="['file']"     mat-list-item style="color: black">   <span class="text-white">File Upload</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="dialogue()" class="titlebg border border-white" [routerLink]="['dialogue']" mat-list-item style="color:black">    <span class="text-white">Dialog</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="reform()"   class="titlebg border border-white" [routerLink]="['reform']"   mat-list-item style="color:black">    <span class="text-white">Form</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="form()"     class="titlebg border border-white" [routerLink]="['form']"     mat-list-item style="color:black">    <span class="text-white">Address Form</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="tel()"      class="titlebg border border-white" [routerLink]="['tel']"      mat-list-item style="color:black">    <span class="text-white">Telephone Input with country code</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="audit()"    class="titlebg border border-white" [routerLink]="['audit']"    mat-list-item style="color:black">    <span class="text-white">Audit Trial</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="time()"     class="titlebg border border-white" [routerLink]="['time']"     mat-list-item style="color:black">    <span class="text-white">Time Conversion</span></a>
+      <a  routerLinkActive="active" (click)="sidenavClose()" (click)="mul()"      class="titlebg border border-white" [routerLink]="['mul']"      mat-list-item style="color:black">    <span class="text-white">Multiselect Country</span></a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p style="height:82vh;">
+    <router-outlet></router-outlet>
+  </p>
+</mat-sidenav-content>
+
+</mat-sidenav-container>
+
+

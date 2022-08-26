@@ -1,0 +1,57 @@
+<mat-toolbar class="w-px h-10 bg-yellow-600">
+  <div class="flex w-1/2 space-x-2 ">
+    <button mat-icon-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  <img class="w-10 h-12 box-shadow" src="../../../assets/img/getbiz_logo.png" [matMenuTriggerFor]="menu">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>home</mat-icon>Home </button>
+    <button mat-menu-item><mat-icon>info</mat-icon>About this app & Contact</button>
+    <button mat-menu-item><mat-icon> contacts</mat-icon>Contact </button>
+    <button mat-menu-item><mat-icon> chat</mat-icon>Chat </button>
+    <button mat-menu-item><mat-icon>security</mat-icon>Scan QR for secure LOGIN </button>
+  </mat-menu>
+  <span class="mt-2 text-white">Rohit Demo</span>
+</div>
+<div class="w-1/2 text-white md:flex md:space-x-2 md:ml-96 ">
+
+  <button mat-icon-button> <mat-icon>notifications_active</mat-icon> </button>
+  <button mat-icon-button> <mat-icon>share</mat-icon> </button>
+  <button mat-icon-button> <mat-icon>wb_sunny</mat-icon> </button>
+   <span class="mt-1.5">Download Web App</span>
+  <button mat-icon-button> <mat-icon>get_app</mat-icon> </button>
+<!--insert select and make it responsive-->
+  <img src="../../../assets/img/profile_icon.png" class="w-10 h-12" [matMenuTriggerFor]="menu1">
+  <mat-menu #menu1="matMenu">
+    <button mat-menu-item><mat-icon>assignment_ind</mat-icon>Profile </button>
+    <button mat-menu-item><mat-icon>phonelink_off</mat-icon>Sign out </button>
+  </mat-menu>
+</div>
+</mat-toolbar>
+<!--first phase-->
+<mat-toolbar class="h-10 bg-gray-500">
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="color:blue;" class="w-8 h-6 bg-white rounded shadow-2xl">
+    <mat-icon (click)="sidenav.toggle();" >menu</mat-icon>
+  </button>
+
+  <span style="color:white;" class="mx-auto">Telephone Input</span>
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" #sidenav opened="true">
+    <mat-nav-list style="width:250px" class="bg-gray-500 border border-white">
+      <a class="bg-yellow-600 border border-white" routerLink="table" mat-list-item style="color:black"><span class="text-white gap-">Table</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color: darkblack"><span class="text-white">Stepper</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Tabs</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color: black"><span class="text-white">File Upload</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Dialog</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Address Form</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Telephone Input with country code</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Audit Trial</span></a>
+      <a class="bg-yellow-600 border border-white" [routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Time Conversion</span></a>
+      <a class="bg-yellow-600 border border-white"[routerLink]="['']" mat-list-item style="color:black"><span class="text-white">Multiselect Country</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content><p style="height:88vh;"><router-outlet></router-outlet></p></mat-sidenav-content>
+</mat-sidenav-container>

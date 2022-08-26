@@ -1,0 +1,78 @@
+<div class="ml-1 mt-1 space-y-1">
+<h1 class="text-black ">Address form Field</h1>
+<form [formGroup]="firstFormGroup">
+  <div class="space-y-1">
+<div class="flex flex-col">
+<mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+  <mat-label>Country</mat-label>
+  <mat-select formControlName="country" required>
+
+    <mat-option *ngFor="let country of countrys" [value]="country.value">
+      {{country.viewValue}}
+    </mat-option>
+  </mat-select>
+  <mat-error >country is required</mat-error>
+</mat-form-field>
+
+</div>
+<div class="flex flex-col">
+  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+    <mat-label>State</mat-label>
+    <mat-select formControlName="state" required>
+      <mat-option *ngFor="let state of states" [value]="state.value">
+        {{state.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-error >state is required</mat-error>
+    </mat-form-field>
+
+</div>
+<div class="flex flex-col">
+    <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+      <mat-label>City/Province</mat-label>
+      <mat-select formControlName="city" required>
+        <mat-option *ngFor="let city of citys" [value]="city.value">
+          {{city.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error>city is required</mat-error>
+      </mat-form-field>
+
+</div>
+
+<div class="flex flex-col">
+  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Last name, First name" formControlName="name" required>
+    <mat-error>Name is required</mat-error>
+  </mat-form-field>
+
+</div>
+<div class="flex flex-col">
+  <mat-form-field appearance="outline"  class="w-72 md:w-80 lg:96 custom_text">
+    <mat-label>Time</mat-label>
+    <input matInput placeholder="Last name, First name" formControlName="time" required>
+    <mat-error >Time is required</mat-error>
+  </mat-form-field>
+
+</div>
+<div class="flex flex-col">
+  <mat-form-field appearance="outline"  class="w-72 md:w-80 lg:96 custom_text">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" required>
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>Date is required</mat-error>
+  </mat-form-field>
+
+</div>
+</div>
+  <div>
+    <button mat-raised-button (click)="submit()" [disabled]="firstFormGroup.invalid" class=" custom_btn">Submit</button>
+
+</div>
+<p>form value : {{firstformvalue|json}}</p>
+<p>submit status: {{submitstatus}}</p>
+</form>
+</div>

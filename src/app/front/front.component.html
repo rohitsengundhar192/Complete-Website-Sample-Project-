@@ -1,0 +1,255 @@
+<div class="bg">
+<mat-toolbar class="titlebg h-9">
+  <div class="w-1/2 flex">
+    <div class="flex">
+      <button mat-icon-button>
+        <mat-icon _ngcontent-tuk-c191="" role="img" class="text-white mt-4 mat-icon notranslate back-icon material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">arrow_back_ios_new</mat-icon>
+      </button>
+      <img style="cursor: pointer;" class="w-11 h-11 logo-box-shadow rounded-lg  mt-3 " src="../../../assets/img/getbiz_logo.png" [matMenuTriggerFor]="menu">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>home</mat-icon>Home </button>
+    <button mat-menu-item><mat-icon>info</mat-icon>About this app & Contact</button>
+    <button mat-menu-item><mat-icon> contacts</mat-icon>Contact </button>
+    <button mat-menu-item><mat-icon> chat</mat-icon>Chat </button>
+    <button mat-menu-item><mat-icon>security</mat-icon>Scan QR for secure LOGIN </button>
+  </mat-menu>
+  <span class="mt-3 ml-4 text-white app-name hidden md:flex lg:flex">Demo Application Full Names</span>
+</div>
+</div>
+
+
+  <span class="spacer"></span>
+<div class="float-right flex space-x-2 ">
+  <div class="flex ml-[7%] space-x-2">
+<div class=" text-white text-justify hidden lg:flex lg:space-x-1 lg:ml-[30%]">
+
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon _ngcontent-tuk-c191="" role="img" matbadge="15" matbadgecolor="warn" matbadgesize="small" class="mt-5 mat-icon notranslate mat-badge mat-badge-warn material-icons mat-icon-no-color mat-badge-overlap mat-badge-above mat-badge-after mat-badge-small" aria-hidden="true" data-mat-icon-type="font">notifications_none <span id="mat-badge-content-1" aria-hidden="true" class="mat-badge-content mat-badge-active">15</span></mat-icon>
+ </button>
+ <button mat-icon-button class="hidden lg:flex">
+     <mat-icon class="mt-4">share</mat-icon>
+ </button>
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon class="mt-4">dark_mode</mat-icon>
+  </button>
+   <span class="hidden lg:flex mt-3 app-name">Download Web App</span>
+  <button mat-icon-button class="hidden lg:flex">
+    <mat-icon class="mt-44">file_download</mat-icon>
+  </button>
+
+  <select class="h-6 w-24 mt-[17px] rounded-md border-black text-black text-sm">
+    <option>Select Language</option>
+    <option>English</option>
+    <option>Tamil</option>
+    <option>Hindi</option>
+  </select>
+</div>
+<!--insert select and make it responsive-->
+<img style="cursor: pointer;" src="../../assets/img/profile_icon.png" class="hidden lg:flex h-12 w-11  logo-box-shadow rounded-lg mt-3" [matMenuTriggerFor]="user">
+<mat-menu #user="matMenu">
+  <button mat-menu-item><mat-icon>assignment_ind</mat-icon>Profile </button>
+  <button mat-menu-item><mat-icon>phonelink_off</mat-icon>Sign out </button>
+</mat-menu>
+</div>
+</div>
+
+<!---part 1/2-->
+<span class="mt-1 ml-14 text-white app-name md:hidden lg:hidden">Demo App...</span>
+<div class="flex space-x-1 ml-[3%] ">
+
+<div class="sm:flex md:ml-72 lg:hidden " >
+  <select class="h-6 w-20 mt-2 rounded-md border-black text-black text-sm ">
+    <option>Select Language</option>
+    <option>English</option>
+    <option>Tamil</option>
+  </select>
+</div>
+
+<!--menu icon-->
+<div class="visible  lg:hidden">
+<button mat-icon-button [matMenuTriggerFor]="menu2" >
+  <mat-icon class="text-white  ">more_vert</mat-icon>
+</button>
+</div>
+</div>
+<mat-menu #menu2="matMenu" class="ml-32 md:disabled:hidden lg:flex">
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Profile</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>notifications_active</mat-icon>
+    <span>Notification</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>new_releases</mat-icon>
+    <span>Audit Trail</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>share</mat-icon>
+    <span>Share</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>file_download</mat-icon>
+    <span>Download</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>wb_sunny</mat-icon>
+    <span>Dark Mode</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+  <mat-icon>exit_to_app</mat-icon>
+  <span>Logout</span>
+  </button>
+</mat-menu>
+
+</mat-toolbar>
+
+<!--Images with functions-->
+<div class="ml-3 mt-5 h-[calc(100vh_-_72px)] overflow-auto ">
+
+<!--1)Accounts-->
+<div class="ml-5 ">
+<p class="text">Accounts</p>
+<img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+<div class="ml-5">
+<h5>string</h5>
+</div>
+</div>
+
+<!--2)Security-->
+
+<div class="ml-5">
+  <p class="text">Security</p>
+  <div class="flex space-x-8">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+</div>
+<div class="flex">
+  <div class="ml-5">
+  <h5>string</h5>
+  </div>
+  <div class="ml-10">
+    <h5>string1</h5>
+    </div></div>
+  </div>
+
+  <!--3)Communication Apps-->
+
+  <div class="ml-5">
+    <p class="text">Communication Apps</p>
+    <div class="flex space-x-8">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  </div>
+  <div class="flex">
+    <div class="ml-5">
+    <h5>office</h5>
+    </div>
+    <div class="ml-10">
+      <h5>Broadcast</h5>
+      </div>
+      <div class="ml-[3%]">
+        <h5>Directory</h5>
+        </div>
+    </div>
+    </div>
+<!---4)Admin Apps-->
+<div class="ml-5">
+  <p class="text">Admin Apps</p>
+  <div class="flex space-x-8">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+</div>
+<div class="flex">
+  <div class="ml-4">
+  <h5>userAdmin</h5>
+  </div>
+  <div class="ml-6">
+    <h5>Userlogin<br>Session data</h5>
+    </div></div>
+  </div>
+
+<!--md3-->
+<div class="ml-5">
+  <p class="text">md3</p>
+  <div class="flex space-x-8">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+</div>
+<div class="flex">
+  <div class="ml-5">
+  <h5>string1</h5>
+  </div>
+  <div class="ml-10">
+    <h5>string2</h5>
+    </div>
+    <div class="ml-[4%]">
+      <h5>string3</h5>
+      </div>
+  </div>
+  </div>
+<!--App management console-->
+<div class="ml-5">
+  <p class="text">App management console</p>
+  <div class="flex space-x-8">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+</div>
+<div class="flex">
+  <div class="ml-2">
+  <h5>Console user<br>Admin</h5>
+  </div>
+  <div class="ml-5">
+    <h5>Your biz app<br>configuration</h5>
+    </div>
+    <div class="ml-[2%]">
+      <h5>User caterogory<br>management</h5>
+      </div>
+  </div>
+  </div>
+  <!--HR apps-->
+
+  <div class="ml-5">
+    <p class="text">Human Resources HR Apps</p>
+    <div class="flex space-x-8">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+    <img style="cursor: pointer;" src="../../assets/img/app.png" class="h-12 w-12 ml-4" (click)="openDialog()">
+  </div>
+  <div class="flex">
+    <div class="ml-2">
+    <h5>Attendance +<br>leave app</h5>
+    </div>
+    <div class="ml-5">
+      <h5>leave request</h5>
+      </div>
+      <div class="ml-[2%]">
+        <h5>Expense</h5>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+

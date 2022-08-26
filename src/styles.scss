@@ -1,1 +1,98 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$mydemo-primary: mat.define-palette(mat.$indigo-palette);
+$mydemo-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$mydemo-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$mydemo-theme: mat.define-light-theme((
+  color: (
+    primary: $mydemo-primary,
+    accent: $mydemo-accent,
+    warn: $mydemo-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($mydemo-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; width: auto; }
+body { margin: 0; font-family:sans-serif; }
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.custom{
+  .mat-tab-label{
+    background-color: #36f;
+    color: white;
+    min-width: 25px !important;
+    height: 30px !important;
+    border: #ffffff 1px solid!important;
+    opacity: 1!important;
+  }
+  .mat-tab-label.mat-tab-label-active{
+    background-color: #9a9a9a!important;
+  }
+
+}
+.country-selector {
+  opacity: 1!important;
+  bottom: 8px!important;
+}
+.custom_text{
+  .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+  .mat-form-field-label-wrapper { top: -1.5em; }
+}
+.mat-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+
+.mat-step-label-selected {
+  color: #fff!important;
+  background: #9a9a9a!important;
+  padding: 5px!important;
+}
+.mat-step-header .mat-step-label.mat-step-label-active {
+  font-weight: 500;
+  text-decoration-line: underline;
+}
+
+.custom_btn{
+  background-color: #3366ff;
+  opacity: 1!important;
+  border-radius: 20px!important;
+  color: white;
+  box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+  line-height: 25px;
+}
+.mat-drawer-container{
+  background-color: #fff;
+}

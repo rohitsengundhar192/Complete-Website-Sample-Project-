@@ -1,0 +1,18 @@
+<div class="flex flex-col">
+<p> 1.Current date is: {{Date1}}</p>
+<p> 2.Local Date is:{{LocalDate}}</p>
+<p>3. Convert local time {{Date1}} to UTC time: {{mydate}}</p>
+<p>4. Convert UTC time: {{mydate}} to local time {{Date1}}</p>
+</div>
+<!---Rxjs timer-->
+<div class="flex space-x-10 ml-3 lg:ml-72">
+  <div class="">
+ <h2 style="color: gray"> Simple Clock:</h2>
+  <div><h1>{{ time | date: 'hh:mm:ss a' }}</h1></div>
+</div>
+
+<div>
+     <h2 style="color: gray">RxJS Clock:</h2>
+  <div><h1> {{ rxTime | date: 'hh:mm:ss a' }} </h1></div>
+</div>
+</div>

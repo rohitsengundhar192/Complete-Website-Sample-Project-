@@ -1,0 +1,17 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field appearance="outline" class="w-72 lg:w-96 mt-1 ml-1 custom_text">
+    <mat-label>Select Countries</mat-label>
+    <mat-select  multiple formControlName="select">
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+<div class="ml-1">
+
+  <button mat-raised-button (click)="submit()" [disabled]="firstFormGroup.invalid" class="custom_btn">Submit</button>
+</div>
+
+</form>
+<div class="ml-1">
+  <p>form value : {{firstformvalue|json}}</p>
+  <p>submit status: {{submitstatus}}</p>
+  </div>

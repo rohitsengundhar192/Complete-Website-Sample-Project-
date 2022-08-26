@@ -1,0 +1,103 @@
+<div class="ml-1 mt-1">
+<ng-container [ngSwitch]="stepperOrientation | async">
+
+</ng-container>
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear" class="custom_btn">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+
+<mat-stepper  [linear]="isLinear" #stepper
+  class="example-stepper"
+  [orientation]="(stepperOrientation | async)!">
+  <div class="mat-form-field">
+
+  <mat-step [stepControl]="firstFormGroup" class="lab"  label="Fill out your name">
+    <form [formGroup]="firstFormGroup">
+      <div class="flex flex-col">
+      <mat-form-field appearance="outline" class="w-56 md:w-96 lg:w-96 custom_text">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="name" required>
+        <mat-error>Date is required</mat-error>
+      </mat-form-field>
+
+</div>
+<div class="flex flex-col">
+      <mat-form-field appearance="outline"  class="w-56 md:w-96 lg:w-96 custom_text">
+        <mat-label>Time</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="time" required>
+        <mat-error>Time is required</mat-error>
+      </mat-form-field>
+
+</div>
+<div class="flex flex-col">
+      <mat-form-field appearance="outline"  class="w-56 md:w-96 lg:w-96 custom_text">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>Date is required</mat-error>
+      </mat-form-field>
+      <button mat-raised-button matStepperNext  color="primary"  [disabled]="firstFormGroup.invalid" class="w-2 custom_btn">Next</button>
+
+</div>
+      <div>
+
+
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <form [formGroup]="secondFormGroup">
+      <div class="flex flex-col">
+      <mat-form-field appearance="outline" class="w-56 md:w-96 lg:w-96 custom_text" >
+        <mat-label>Address1</mat-label>
+        <input matInput formControlName="add1" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+               <mat-error>Address1 is required</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="flex flex-col">
+      <mat-form-field appearance="outline" class="w-56 md:w-96 lg:w-96 custom_text">
+        <mat-label>Address2</mat-label>
+        <input matInput formControlName="add2" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+               <mat-error>Address2 is required</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="flex flex-col">
+      <mat-form-field appearance="outline" class="w-56 md:w-96 lg:w-96 custom_text">
+        <mat-label>Address3</mat-label>
+        <input matInput formControlName="add3" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+               <mat-error >Address3 is required</mat-error>
+      </mat-form-field>
+    </div>
+      <div class="space-x-4">
+        <button mat-button matStepperPrevious class="custom_btn">Back</button>
+
+        <button mat-raised-button matStepperNext  color="primary"  [disabled]="firstFormGroup.invalid" class=" bg-blue-500 text-white custom_btn">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div class=" space-x-1 lg:space-x-4 ">
+
+      <button mat-button matStepperPrevious class=" custom_btn">Back</button>
+      <button mat-button (click)="stepper.reset()" class=" custom_btn">Reset</button>
+      <button mat-raised-button matStepperNext (click)="submit()" color="primary"  [disabled]="firstFormGroup.invalid" class=" bg-blue-500 text-white custom_btn">Submit</button>
+
+    </div>
+
+  </mat-step>
+
+</div>
+</mat-stepper>
+<div class="ml-1 mt-1">
+<p>form value : {{firstformvalue|json}},{{secondformvalue|json}}</p>
+<p>submit status: {{submitstatus}}</p>
+</div>

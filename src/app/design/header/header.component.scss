@@ -1,0 +1,64 @@
+header{
+  width:100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 99;
+}
+#chk1{
+  display: none;
+
+
+}
+i{
+  color: #fff;
+  cursor: pointer;
+}
+
+header ul {
+  flex:1;
+  display: flex;
+}
+header ul li{
+  list-style: none;
+}
+header ul li a{
+  text-decoration: none;
+  color:#fff;
+  font-weight: 200;
+
+}
+
+header .menu{
+  font-size: 1.5em;
+  display: none;
+}
+@media(max-width:1000px){
+  .search-box button{
+      position: absolute;
+  }
+  header ul{
+      position: fixed;
+      top:100px;
+      right: -100%;
+      background: #000;
+      height: calc(50vh - 50px);
+      width:50%;
+      flex-direction: column;
+      align-items: center;
+      transition: right 0.5s linear;
+  }
+
+  header .menu{
+      display: block;
+      width: 50px;
+      text-align: center;
+  }
+  #chk1:checked ~ ul{
+      right: 0;
+
+  }
+
+}

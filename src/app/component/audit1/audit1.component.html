@@ -1,0 +1,72 @@
+<div class=" mat-elevation-z8 ml-1 mt-2 w-72 h-[400px] md:w-80 md:h-[270px] lg:w-96 lg:h-[325px]">
+  <table class="w-[50%] h-4 lg:h-48" mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-blue-500"> ID </th>
+      <td mat-cell *matCellDef="let row" > {{row.id}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="progress">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-blue-500"> Progress </th>
+      <td mat-cell *matCellDef="let row" > {{row.progress}}% </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-blue-500"> Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="fruit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-blue-500"> Fruit </th>
+      <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="col"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="col1" ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator class="" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  <div class="flex space-x-7 lg:space-x-24 ml-2 custom_text">
+    <mat-form-field class="wid" appearance="outline" >
+      <input matInput  placeholder="Filter"  (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <a [matMenuTriggerFor]="ex" class="text-blue-500"><u>Export</u></a>
+    <mat-menu #ex="matMenu">
+      <button mat-menu-item><mat-icon>picture_as_pdf</mat-icon>Print/Export Pdf </button>
+      <button mat-menu-item><mat-icon>print</mat-icon>Export spreadsheet </button>
+      <button mat-menu-item><mat-icon>border_clear</mat-icon>Export CSV files </button>
+      <button mat-menu-item><mat-icon>border_all</mat-icon>Export Json </button>
+    </mat-menu>
+</div>
+<div class="color w-72 lg:w-96">
+  <mat-card-content  >* Please select "All" Records to enable filter </mat-card-content>
+  </div>
+</div>
+
+
+
+<mat-dialog-actions align="end" class="nav" >
+  <button mat-raised-button  mat-dialog-close class="custom_btn">Close</button>
+ 
+
+</mat-dialog-actions>
+
+<!--
+  <mat-form-field appearance="outline">
+
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+  <p class="coll"> * Please select "All" Records to enable table data Filter</p>
+
+-->
