@@ -1,7 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Audit1Component } from '../component/audit1/audit1.component';
-import { TableComponent } from '../component/table/table.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -83,6 +80,16 @@ export class HeadComponent {
   test() {
     this.heads = 'Test';
   }
+  dyn() {
+    this.heads = 'Forms';
+  }
+  trip() {
+    this.heads = 'Trip Booking';
+  }
+  ave() {
+    this.heads = 'Average Performance';
+  }
+
 
   sidenavClose() {
     if (this.sidenav.mode == 'side') {

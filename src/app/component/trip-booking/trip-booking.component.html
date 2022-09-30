@@ -1,0 +1,161 @@
+<div class="space-y-6">
+
+ <!--First Table-->
+<div class="container">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>No.of Activity group</th>
+      <th>No.of Day group</th>
+      <th>No.of Day_night group</th>
+      <th>No.of Male</th>
+      <th>No.of Female</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform of realforms">
+      <td><mat-radio-button (click)="radiobut(realform.date)" ><span>{{realform.date}}</span></mat-radio-button></td>
+      <td><span>{{realform.no_active_groups}}</span></td>
+      <td><span>{{realform.no_of_day_groups}}</span></td>
+      <td><span>{{realform.no_of_day_and_night}}</span></td>
+      <td><span>{{realform.no_male}}</span></td>
+      <td><span>{{realform.no_female}}</span></td>
+      <td><span>{{realform.no_total}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="ml-[43%]">
+  <button mat-button (click)="getTripID()" class="custom_btn">click</button>
+</div>
+</div>
+
+<!--Second Table-->
+
+<div class="container">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Trip ID of Activity Group</th>
+      <th>Customer ID</th>
+      <th>Edu.Ins Name</th>
+      <th>Male</th>
+      <th>Female</th>
+      <th>Total</th>
+      <th>Volunteer Name</th>
+      <th>HOD Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform1 of realforms1">
+      <td><span>{{realform1.activity_id}}</span></td>
+      <td><span>{{realform1.customer_id}}</span></td>
+      <td><span>{{realform1.education_institute_name}}</span></td>
+      <td><span>{{realform1.male}}</span></td>
+      <td><span>{{realform1.female}}</span></td>
+      <td><span>{{realform1.totals}}</span></td>
+      <td><span>{{realform1.volunteer}}</span></td>
+      <td><span>{{realform1.head_name}}</span></td>
+
+    </tr>
+    </tbody>
+ </table>
+ </div>
+ <br>
+ <hr class="font-extrabold">
+
+ <!--Third Table-->
+ <div class="container">
+  <div class="ml-[41%]">
+    <button mat-button (click)="getallTripDetails()" class="custom_btn">Past Details</button>
+  </div>
+  <br>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>No.of Activity group</th>
+      <th>No.of Day group</th>
+      <th>No.of Day_night group</th>
+      <th>No.of Male</th>
+      <th>No.of Female</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform2 of realforms2">
+      <td><span>{{realform2.date}}</span></td>
+      <td><span>{{realform2.no_active_groups}}</span></td>
+      <td><span>{{realform2.no_of_day_groups}}</span></td>
+      <td><span>{{realform2.no_of_day_and_night}}</span></td>
+      <td><span>{{realform2.no_male}}</span></td>
+      <td><span>{{realform2.no_female}}</span></td>
+      <td><span>{{realform2.no_total}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--Fourth Table--->
+<div class="flex space-x-3">
+
+  <div>
+<p class="font-serif font-extrabold mt-2">Select the Date:</p>
+  </div>
+
+  <div>
+<form class="example-form">
+  <mat-form-field class="w-72 md:w-80 lg:96 custom_text" appearance="outline">
+    <mat-label>Choose a Date</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="datefil(option.name)">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+</div>
+<div class="mt-2">
+  <button mat-raised-button color="primary" (click)="getGuideTripID()" class="custom_btn">Select</button>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+
+      <th>No.of Activity group</th>
+      <th>No.of Male</th>
+      <th>No.of Female</th>
+      <th>Total</th>
+      <th>Guide Allocation</th>
+      <th>Edu.Ins Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform4 of realforms4">
+      <td><span>{{realform4.guideactivity_id}}</span></td>
+      <td><span>{{realform4.guidemale}}</span></td>
+      <td><span>{{realform4.guidefemale}}</span></td>
+      <td><span>{{realform4.guidetotals}}</span></td>
+      <td><span>{{realform4.guide_details}}</span></td>
+      <td><span>{{realform4.guideeducation_institute_name}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</div>
+
+

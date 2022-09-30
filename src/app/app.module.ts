@@ -51,6 +51,10 @@ import { MatListModule } from '@angular/material/list';
 import { HomeModule } from './home/home.module';
 import { FrontComponent } from './front/front.component';
 import { Front1Component } from './front1/front1.component';
+import { RealformsecComponent } from './component/component2/realformsec/realformsec.component';
+import { DynamicFormComponent } from './component/dynamic-form/dynamic-form.component';
+import { TripBookingComponent } from './component/trip-booking/trip-booking.component';
+import { AverageTripBookingComponent } from './component/average-trip-booking/average-trip-booking.component';
 
 
 
@@ -76,7 +80,7 @@ import { Front1Component } from './front1/front1.component';
     HeadComponent,
     StepperComponent,
     TabsComponent,
-    FileComponent,DialogueComponent, FormComponent, TelephoneComponent, MulticountryComponent, TimeComponent, TableComponent,AuditComponent, DialogexampleComponent, Audit1Component, TestComponent, RealformComponent, Test2Component, Test3Component, MainNavComponent, FrontComponent, Front1Component,
+    FileComponent,DialogueComponent, FormComponent, TelephoneComponent, MulticountryComponent, TimeComponent, TableComponent,AuditComponent, DialogexampleComponent, Audit1Component, TestComponent, RealformComponent, Test2Component, Test3Component, MainNavComponent, FrontComponent, Front1Component, RealformsecComponent, DynamicFormComponent, TripBookingComponent, AverageTripBookingComponent,
 
   ],
   entryComponents:[DialogexampleComponent],

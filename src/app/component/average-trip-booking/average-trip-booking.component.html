@@ -1,0 +1,50 @@
+<div class="flex space-x-4 mt-5 ml-5">
+  <div class="mt-2 ">
+   <p class="font-extrabold">Guide ID:</p>
+  </div>
+
+
+<div class="flex flex-col">
+  <form [formGroup]="idgroup">
+  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+    <mat-label>Guide_ID</mat-label>
+    <input matInput placeholder="ID" formControlName="id"  required>
+    <mat-error>Guide_ID is required</mat-error>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button (click)="submit(idgroup.value)" [disabled]="idgroup.invalid" class=" custom_btn">Submit</button>
+</div>
+</form>
+</div>
+</div>
+<br>
+
+
+<div class="container">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+
+      <th>Customer ID</th>
+      <th>Customer Name</th>
+      <th>User Name</th>
+      <th>Rating Date & Time</th>
+      <th>Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform5 of realforms5">
+      <td><span>{{realform5.racustomer_id}}</span></td>
+      <td><span>{{realform5.raCustomer_name}}</span></td>
+      <td><span>{{realform5.raUsername}}</span></td>
+      <td><span>{{realform5.raDate}}</span></td>
+      <td><span>{{realform5.raRating}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

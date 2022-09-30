@@ -1,0 +1,181 @@
+<div class="grid md:flex lg:flex">
+<div class="w-1/2 ml-1 mt-1 space-y-1">
+  <h1 class="text-black ">Registration Form</h1>
+  <form [formGroup]="firstFormGroup">
+    <div class="space-y-1">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" formControlName="fn1" required>
+          <mat-error>fn is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="ln1" required>
+          <mat-error>ln is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline"  class="w-72 md:w-80 lg:96 custom_text">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date1" required>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>DOB is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="sex1" required>
+
+            <mat-option *ngFor="let country of countrys" [value]="country.value">
+              {{country.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error >sex is required</mat-error>
+        </mat-form-field>
+        </div>
+
+        <div class="flex flex-col">
+          <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+            <mat-label>Designation</mat-label>
+            <input matInput placeholder="Designation" formControlName="des1" required>
+            <mat-error>Designation is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="flex flex-col">
+          <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="add1" required>
+            <mat-error>Add is required</mat-error>
+          </mat-form-field>
+        </div>
+
+         <div class="flex flex-col">
+          <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="pass1" required>
+            <mat-error>Password is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-width  ">
+          <div class="flex flex-col">
+          <mat-form-field appearance="outline" class="opacity-1 w-72 md:w-80 lg:w-80 country-selector custom_text">
+           <ngx-mat-intl-tel-input formControlName="phone1" [enablePlaceholder]="true" [enableSearch]="true"
+            name="phone" #phone (countryChanged)="changecountry($event)" >
+           </ngx-mat-intl-tel-input>
+          </mat-form-field>
+
+        </div>
+         </div>
+
+
+  </div>
+    <div>
+      <button mat-raised-button (click)="submit()" [disabled]="firstFormGroup.invalid" class=" custom_btn">{{actionBtn}}</button>
+
+  </div>
+  <p>form value : {{firstformvalue|json}}</p>
+  <p>submit status: {{submitstatus}}</p>
+  </form>
+  </div>
+<!---Second phase-->
+
+<div class="w-1/2 ml-1 mt-1 space-y-1">
+  <h1 class="text-black ">Login Form</h1>
+  <form [formGroup]="secondFormGroup">
+    <div class="space-y-1">
+      <div class="form-width  ">
+        <div class="flex flex-col">
+        <mat-form-field appearance="outline" class="opacity-1 w-72 md:w-80 lg:w-80 country-selector custom_text">
+         <ngx-mat-intl-tel-input formControlName="phone2" [enablePlaceholder]="true" [enableSearch]="true"
+          name="phone" #phone (countryChanged)="changecountry($event)" >
+         </ngx-mat-intl-tel-input>
+        </mat-form-field>
+      </div>
+       </div>
+       <div class="flex flex-col">
+        <mat-form-field appearance="outline" class="w-72 md:w-80 lg:96 custom_text">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Last Name" formControlName="pass2" required>
+          <mat-error>Password is required</mat-error>
+        </mat-form-field>
+      </div>
+
+  </div>
+
+    <div>
+      <button mat-raised-button [disabled]="secondFormGroup.invalid" (click)="sub()" class=" custom_btn">Submit</button>
+
+  </div>
+  <p>form value : {{secondformvalue|json}}</p>
+  <p>submit status: {{submitstatuss}}</p>
+  </form>
+  </div>
+</div>
+
+<!--Table-->
+<div class="ml-2">
+<form class="example-form" [formGroup]="country">
+  <mat-form-field class="w-72 md:w-80 lg:96 custom_text" appearance="outline">
+    <mat-label>SelectCountries</mat-label>
+    <input type="text" matInput formControlName="countrycontrol" [matAutocomplete]="auto">
+    <mat-autocomplete  #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field><br>
+  <button mat-raised-button color="primary" (click)="countrysubmit()" class="custom_btn">Select</button>
+</form>
+</div>
+<br>
+<div class="container">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Date</th>
+      <th>Gender</th>
+      <th>Designation</th>
+      <th>Address</th>
+      <th>phone</th>
+      <th>Password</th>
+      <th>Countryid</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let realform of DATAELEMENT">
+      <td><span>{{realform.id}}</span></td>
+      <td><span>{{realform.fn1}}</span></td>
+      <td><span>{{realform.ln1}}</span></td>
+      <td><span>{{realform.date1}}</span></td>
+      <td><span>{{realform.sex1}}</span></td>
+      <td><span>{{realform.des1}}</span></td>
+      <td><span>{{realform.add1}}</span></td>
+      <td><span>{{realform.phone1}}</span></td>
+      <td><span>{{realform.pass1}}</span></td>
+      <td><span>{{realform.ctryid}}</span></td>
+      <ng-container matColumnDef="action">
+        <td>
+          <button mat-icon-button color="primary" class="custom_btn" (click)="editUserDetails(realform)">
+            <mat-icon>edit</mat-icon>
+          </button></td>
+         <td> <button mat-icon-button  color="primary" class="custom_btn" (click)="deleteTabledetails(realform)" >
+            <mat-icon>delete</mat-icon>
+          </button></td>
+
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>

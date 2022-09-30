@@ -1,8 +1,8 @@
 <form [formGroup]="firstFormGroup">
   <!--Phase 1-->
-  <div class=" mt-2 ml-1 grid md:flex md:space-x-12 lg:flex lg:space-x-12">
+  <div class=" mt-1 ml-1 grid">
 <div class="flex flex-col ">
-  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:w-96 custom_text">
+  <mat-form-field appearance="outline" class="w-72 custom_text">
     <mat-label>Enter Name</mat-label>
     <input matInput placeholder="Last name, First name" formControlName="name1" required>
     <mat-error>Name is required</mat-error>
@@ -10,7 +10,7 @@
 
 </div>
 <div class="flex flex-col re">
-  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:w-96 custom_text">
+  <mat-form-field appearance="outline" class="w-72  custom_text">
     <mat-label>Choose a Gender</mat-label>
     <mat-select formControlName="gender1" required>
       <mat-option *ngFor="let gender of genders" [value]="gender.value">
@@ -23,9 +23,9 @@
 </div>
 </div>
 <!---phase 2-->
-<div class=" mt-1 ml-1 grid md:flex md:space-x-12 lg:flex lg:space-x-12">
+<div class=" mt-1 ml-1 grid ">
   <div class="flex flex-col re">
-    <mat-form-field appearance="outline" class="w-72 md:w-80 lg:w-96 custom_text">
+    <mat-form-field appearance="outline" class="w-72  custom_text">
       <mat-label>Country</mat-label>
       <mat-select formControlName="country1" required>
 
@@ -38,7 +38,7 @@
 
     </div>
 <div class="flex flex-col re">
-  <mat-form-field appearance="outline" class="w-72 md:w-80 lg:w-96 custom_text">
+  <mat-form-field appearance="outline" class="w-72 custom_text">
     <mat-label>Country</mat-label>
     <mat-select formControlName="country1" required>
 
@@ -54,7 +54,7 @@
 <!--Phase 3-->
 <Div class="flex mt-1 ml-1 space-x-12">
 <div class="flex flex-col">
-  <mat-form-field appearance="outline"  class="w-72 md:w-80 lg:w-96 custom_text">
+  <mat-form-field appearance="outline"  class="w-72  custom_text">
     <mat-label>Choose a date</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="date1" required>
     <mat-hint>MM/DD/YYYY</mat-hint>
@@ -68,7 +68,7 @@
 
 <!--Next-->
 <div class="ml-[40%]">
-  <button mat-raised-button color="primary" (click)="submit()" [disabled]="firstFormGroup.invalid" class="custom_btn">{{actionBtn}}</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="firstFormGroup.invalid" class="custom_btn">Submit</button>
 
 </div>
 <div class="ml-4">
@@ -76,37 +76,3 @@
 <p>submit status: {{submitstatus}}</p>
 </div>
 </form>
-
-<div class="container">
-
-  <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th>SNO</th>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Date</th>
-      <th>Country</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let realform of realforms">
-      <td><span>{{realform.sno}}</span></td>
-      <td><span>{{realform.name1}}</span></td>
-      <td><span>{{realform.gender1}}</span></td>
-      <td><span>{{realform.date1}}</span></td>
-      <td><span>{{realform.country1}}</span></td>
-      <ng-container matColumnDef="action">
-        <td>
-          <button mat-icon-button color="primary" class="custom_btn" (click)="editUserDetails(realform)">
-            <mat-icon>edit</mat-icon>
-          </button></td>
-         <td> <button mat-icon-button  color="primary" class="custom_btn" (click)="deleteUserDetails(realform.sno)">
-            <mat-icon>delete</mat-icon>
-          </button></td>
-
-      </ng-container>
-    </tr>
-    </tbody>
-  </table>
-</div>

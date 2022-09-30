@@ -11,15 +11,16 @@ import { TimeComponent } from './component/time/time.component';
 import { TableComponent } from './component/table/table.component';
 
 import { AuditComponent } from './component/audit/audit.component';
-import { TestComponent } from './component/test/test.component';
 import { RealformComponent } from './component/realform/realform.component';
-import { Test2Component } from './component/test2/test2.component';
 import { Test3Component } from './component/test3/test3.component';
 import { HomeComponent } from './home/home.component';
 import { FirstpageComponent } from './home/component/firstpage/firstpage.component';
 import { SecondpageComponent } from './home/component/secondpage/secondpage.component';
 import { HeadComponent } from './head/head.component';
 import { FrontComponent } from './front/front.component';
+import { DynamicFormComponent } from './component/dynamic-form/dynamic-form.component';
+import { TripBookingComponent } from './component/trip-booking/trip-booking.component';
+import { AverageTripBookingComponent } from './component/average-trip-booking/average-trip-booking.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,9 @@ const routes: Routes = [
     {path:'table',component:TableComponent},
     {path:'audit',component:AuditComponent},
     {path:'test',component:Test3Component},
+    {path:'dyn',component:DynamicFormComponent},
+    {path:'trip',component:TripBookingComponent},
+    {path:'ave',component:AverageTripBookingComponent},
   ]
 },
   {path:'front',component:FrontComponent}
